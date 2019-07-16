@@ -149,24 +149,24 @@ h1, h2, h3, h4, h5, h6 {
   margin: 10px;
 }
 
-#welcome .btn-get-started {
+#welcome .btn-informacion-riesgos {
   background: #03C4EB;
   border: 2px solid #03C4EB;
   color: #fff;
 }
 
-#welcome .btn-get-started:hover {
+#welcome .btn-informacion-riesgos:hover {
   background: none;
   border: 2px solid #fff;
   color: #fff;
 }
 
-#welcome .btn-services {
+#welcome .btn-gestionar {
   border: 2px solid #fff;
   color: #fff;
 }
 
-#welcome .btn-services:hover {
+#welcome .btn-gestionar:hover {
   background: #03C4EB;
   border: 2px solid #03C4EB;
 }
