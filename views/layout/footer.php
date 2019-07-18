@@ -1,4 +1,24 @@
 </div>
+    </section>
+
+  <!--==========================
+  Footer
+============================-->
+
+  <footer id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="copyright">
+            Designed by: <strong>Fernando Gómez Web 2019</strong>
+          </div>
+          <div class="credits">
+        
+            <a href="mailto:fernando.amazingweb@gmail.com">fernando.amazingweb@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
   <!-- #footer -->
 
@@ -21,5 +41,7 @@
 
 
 </body>
+
+</html>
 
 </html>

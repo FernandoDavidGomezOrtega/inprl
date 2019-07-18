@@ -1,9 +1,9 @@
     <!-- Normativa -->
-    <section id="normativa" class="mt-4">
+    <!-- <section id="normativa" class="mt-4"> -->
       <div class="container">
         <div class="row">
           <div class="col text-center text-uppercase pb-3">
-            <h2>Normativa básica de prl</h2>
+            <h2>Normativa básica de PRL</h2>
           </div>
         </div>
         <div class="row">
@@ -714,6 +714,6 @@
             <a href="http://www.cem-malaga.es/portalcem/novedades/2013/CEM_guia_riesgos_psicosociales_interactivo.pdf" target="_blank">Medidas preventivas DAW</a><br>
           </div>
         </div>
-      </div>
-    </section>
+      <!-- </div>
+    </section> -->
     <!-- /Referencias -->

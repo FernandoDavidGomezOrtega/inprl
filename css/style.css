@@ -88,15 +88,23 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
 }
 
-#welcome .welcome-logo {
+#welcome-informacion {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  background: url(../assets/images/industrial4.jpg) top center fixed;
+  background-size: cover;
+}
+
+#welcome .welcome-logo, #welcome-informacion .welcome-logo {
   margin: 20px;
 }
 
-#welcome .welcome-logo img {
+#welcome .welcome-logo img, #welcome-informacion .welcome-logo img {
   max-width: 15%;
 }
 
-#welcome .welcome-container {
+#welcome .welcome-container, #welcome-informacion .welcome-container {
   background: rgba(0, 0, 0, 0.6);
   display: table-cell;
   margin: 0;
@@ -105,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
   vertical-align: middle;
 }
 
-#welcome h1 {
+#welcome h1, #welcome-informacion h1 {
   margin: 30px 0 10px 0;
   font-weight: 700;
   line-height: 48px;
@@ -114,33 +122,33 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
-  #welcome h1 {
+  #welcome h1, #welcome-informacion h1 {
     font-size: 28px;
     line-height: 36px;
   }
 }
 
-#welcome h2 {
+#welcome h2, #welcome-informacion h2 {
   color: #999;
   margin-bottom: 50px;
 }
 
 @media (max-width: 768px) {
-  #welcome h2 {
+  #welcome h2, #welcome-informacion h2 {
     font-size: 24px;
     line-height: 26px;
     margin-bottom: 30px;
   }
-  #welcome h2 .rotating {
+  #welcome h2 .rotating, #welcome-informacion h2 .rotating {
     display: block;
   }
 }
 
-#welcome .rotating > .animated {
+#welcome .rotating > .animated, #welcome-informacion .rotating > .animated {
   display: inline-block;
 }
 
-#welcome .actions a {
+#welcome .actions a, #welcome-informacion .actions a {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   font-weight: 500;
@@ -153,24 +161,24 @@ h1, h2, h3, h4, h5, h6 {
   margin: 10px;
 }
 
-#welcome .btn-informacion-riesgos {
+#welcome .btn-informacion-riesgos, #welcome-informacion .btn-informacion-riesgos {
   background: #03C4EB;
   border: 2px solid #03C4EB;
   color: #fff;
 }
 
-#welcome .btn-informacion-riesgos:hover {
+#welcome .btn-informacion-riesgos:hover, #welcome-informacion .btn-informacion-riesgos:hover {
   background: none;
   border: 2px solid #fff;
   color: #fff;
 }
 
-#welcome .btn-gestionar {
+#welcome .btn-gestionar, #welcome-informacion .btn-gestionar {
   border: 2px solid #fff;
   color: #fff;
 }
 
-#welcome .btn-gestionar:hover {
+#welcome .btn-gestionar:hover, #welcome-informacion .btn-gestionar:hover {
   background: #03C4EB;
   border: 2px solid #03C4EB;
 }
@@ -501,6 +509,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #about .about-text:last-child {
   margin-bottom: 0;
+}
+
+#about img{
+  margin-bottom: 30px;
 }
 
 /* Contact && Location Section
