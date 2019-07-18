@@ -120,7 +120,7 @@
             </div>
           </div>
   
-          <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 col-md-5 col-md-push-3">
+          <div class="col-xs-10 col-xs-push-2 col-sm-8 col-sm-push-2 col-md-5 col-md-push-3">
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.743413675525!2d-3.6944245850730013!3d40.45881567936016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42291ca8f00377%3A0x4e43858dbba5874f!2sCalle+del+Poeta+Joan+Maragall%2C+35%2C+28020+Madrid!5e0!3m2!1ses!2ses!4v1563225294610!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
               <!-- <iframe style="max-width: 100%" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3035.743413675525!2d-3.6944245850730013!3d40.45881567936016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42291ca8f00377%3A0x4e43858dbba5874f!2sCalle+del+Poeta+Joan+Maragall%2C+35%2C+28020+Madrid!5e0!3m2!1ses!2ses!4v1563225294610!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
           </div>
