@@ -1,83 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
-  <!-- Meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>INPRL</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="<?= base_url ?>css/index.css">
-  <link rel="shortout icon" type="image/ico" href="<?= base_url ?>favicon.ico">
+  <link rel="shortout icon" type="image/ico" href="favicon.ico">
 
-  <title>Iniciar sesión</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="lib/animate-css/animate.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet">
+
 </head>
 
-<body data-spy="scroll" data-target="#navbar" data-offset="74">
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <!-- Header -->
-  <nav id="header" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-      <!-- lleva al homepage si no hay sesion acitva -->
-      <?php if (!isset($_SESSION['identity'])) : ?>
-        <a class="navbar-brand title" href="<?= base_url ?>">
-          <!-- lleva a insertDate si hay sesion activa-->
-        <?php else : ?>
-          <a class="navbar-brand title" href="<?= base_url ?>index.php?controller=hojaDiaria&action=initSessionVars">
-          <?php endif; ?>
+<body>
+  <div id="preloader"></div>
 
-          <img class="mr-5" src="<?= base_url ?>assets/images/taxi.jpg" alt="taxi logo">
-          CALCULOS DIARIOS HOJA DEL TAXI
-        </a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbar">
-          <!-- Navbar sin sesión activa -->
-          <?php if (!isset($_SESSION['identity'])) :  ?>
-            <ul class="navbar-nav ml-auto">
-              <form class="" action="<?= base_url ?>usuario/signIn" method="post">
-                <!-- <form class="" action="<?= base_url ?>index.php?controller=usuario&action=signIn" method="post"> -->
-                <li class="nav-item">
-                  <a class="nav-link btn btn-outline-success mr-5" href="<?= base_url ?>usuario/signIn">Iniciar Sesión</a>
-                </li>
-              </form>
-              <li class="nav-item">
-                <a class="nav-link btn btn-outline-primary" href="<?= base_url ?>usuario/signUp">Registrarse</a>
-              </li>
-            </ul>
-          <?php endif; ?>
-
-          <!-- Navbar con sesión activa -->
-          <?php if (isset($_SESSION['identity'])) :  ?>
-            <ul class="navbar-nav ml-auto">
-              <li class="mt-2 mr-5 ">
-                <p class="designed-by">Bienvenido/a, <b><?= $_SESSION['identity']->name ?></b></p>
-              </li>
-              <li class="nav-item">
-                <div class="dropdown show">
-                  <a class=" nav-link dropdown-toggle color_nav_link_item" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Consultar hojas
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="<?= base_url ?>index.php?controller=hojaDiaria&action=consultarHoja">Consultar por fecha</a>
-                    <a class="dropdown-item" href="<?= base_url ?>index.php?controller=hojaDiaria&action=consultarMesHoja">Consultar por mes</a>
-                  </div>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link color_nav_link_item" href="<?= base_url ?>index.php?controller=usuario&action=unsetSession">Cerrar sesión</a>
-              </li>
-            </ul>
-          <?php endif; ?>
-
+  <!--==========================
+  welcome Section
+  ============================-->
+  <section id="welcome">
+    <div class="welcome-container">
+      <div class="wow fadeIn">
+        <div class="welcome-logo">
+          <img class="" src="assets/images/shield.png" alt="Logo INPRL">
         </div>
-    </div>
-  </nav>
-  <!-- /Header -->
 
-  <!-- Main -->
-  <main id="bienvenido" class="pt-4 pb-5">
+        <h1>INSTITUTO NACIONAL DE PREVENCIÓN DE RIESGOs LABORALES</h1>
+        <h2>Trabajamos <span class="rotating">por la seguridad laboral, por la prevención de riesgos, para el bienestar del trabajador</span></h2>
+        <div class="actions">
+          <a href="informacion_riesgos.html" class="btn-informacion-riesgos">Información sobre riesgos</a>
+          <a href="#" class="btn-gestionar">Gestionar partes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--==========================
+  Sección de encabezado
+  ============================-->
+  <header id="header">
+    <div class="container">
+      <div id="logo" class="pull-left">
+        <a href="#welcome"><img src="assets/images/shield.png" alt="" title="" />INPRL</a>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#welcome">Inicio</a></li>
+          <li><a href="#about">El INPRL</a></li>
+          <li><a href="#">Información sobre riesgos</a></li>
+          <li><a href="#">Gestionar partes</a></li>
+          <li><a href="#contact">Contacto</a></li>
+          <li><a href="#location">Dónde estamos</a></li>
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
+    </div>
+  </header>
+  <!-- #header -->
+
+  <!--==========================
+  About Section
+  ============================-->
+  <main id="about">
