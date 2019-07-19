@@ -26,6 +26,8 @@
 </head>
 
 <body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
   <div id="preloader"></div>
 
   <!--==========================
@@ -38,11 +40,11 @@
           <img class="" src="assets/images/shield.png" alt="Logo INPRL">
         </div>
 
-        <h1>INSTITUTO NACIONAL DE PREVENCIÓN DE RIESGOs LABORALES</h1>
+        <h1>INSTITUTO NACIONAL DE PREVENCIÓN DE RIESGOS LABORALES</h1>
         <h2>Trabajamos <span class="rotating">por la seguridad laboral, por la prevención de riesgos, para el bienestar del trabajador</span></h2>
         <div class="actions">
           <a href="<?= base_url ?>informacion_riesgos.html" class="btn-informacion-riesgos">Información sobre riesgos</a>
-          <a href="#" class="btn-gestionar">Gestionar partes</a>
+          <a href="index.php?controller=usuario&action=signIn" class="btn-gestionar">Gestionar partes</a>
         </div>
       </div>
     </div>
@@ -60,9 +62,9 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="#welcome">Inicio</a></li>
-          <li><a href="#about">El INPRL</a></li>
+          <li><a href="<?= base_url ?>#about">El INPRL</a></li>
           <li><a href="<?= base_url ?>informacion_riesgos.html">Información sobre riesgos</a></li>
-          <li><a href="#">Gestionar partes</a></li>
+          <li><a href="<?= base_url ?>index.php?controller=usuario&action=signIn">Gestionar partes</a></li>
           <li><a href="#contact">Contacto</a></li>
           <li><a href="#location">Dónde estamos</a></li>
         </ul>
