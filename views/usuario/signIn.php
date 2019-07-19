@@ -13,73 +13,51 @@
 
 
   <?php if (isset($_SESSION['errorLogin'])) : ?>
-  <div class="row centrado">
-    <div class="alert alert-danger text-align-center" role="alert">
+  <div class="container" id ="">
+  <div class="row ">
+    <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-danger text-center" role="alert">
       <?php echo $_SESSION['errorLogin'] ?>
     </div>
   </div>
+  </div>
   <?php Utils::deleteSession('errorLogin'); endif; ?>
 
-  <?php if (isset($_SESSION['register']) && $_SESSION['register'] == 'complete') : ?>
-  <div class="row centrado">
-    <div class="alert alert-success text-align-center" role="alert">
+  <!-- <?php if (isset($_SESSION['register']) && $_SESSION['register'] == 'complete') : ?>
+  <div class="container" id ="">
+  <div class="row ">
+    <div class="alert alert-success text-center" role="alert">
       Tu cuenta ha sido creada correctamente
     </div>
   </div>
-  <?php Utils::deleteSession('register'); endif; ?>
+  </div>
+  <?php Utils::deleteSession('register'); endif; ?> -->
 
   <!-- <section id="contact"> -->
-    <div class="container ">
+  <div class="container ">
 
-      <div class="row">
-        <div class="col-md-6 col-md-push-3">
-          <div class="form">
-            <form action="<?=base_url?>index.php?controller=usuario&action=verifyLogin" onSubmit="return validarPassword()" method="post"  class="contactForm">
-              <div class="form-group">
-                <label for="login">Nombre de usuario</label>
-                <input type="text" name="login" class="form-control" id="login" placeholder="admin1, admin2, admin3" required  autofocus/>
-              </div>
-              <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input type="password" class="form-control" name="loginPassword" id="loginPassword" placeholder="inprl-123" required  />
-              </div>
-              <div class="text-center"><button type="submit">Entrar</button></div>
-            </form>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  <!-- </section> -->
-
-  <div class="row centrado">
-        <div class="col col-md-10  col-lg-6  pt-2">
-          <!-- revisar por qué no funciona la dirección corta -->
-          <!-- base_url usuario/verifyLogin (nombre del controlador y de la acción) -->
-          <form action="<?=base_url?>index.php?controller=usuario&action=verifyLogin" method="post" onSubmit="return validarPassword()">
-
-            <div class="form-group col-12 col-md-6">
-              <label for="">Introduzca su nombre de usuario <b>(Fernando, Irene)</b></label>
-              <input type="text" name="name" id="login" value="" maxlength="20" placeholder="Fernando, Irene" required="required" autofocus="autofocus">
+    <div class="row">
+      <div class="col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3">
+        <div class="form">
+          <form action="<?=base_url?>index.php?controller=usuario&action=verifyLogin"
+            onSubmit="return validarPassword()" method="post">
+            <div class="form-group">
+              <label for="login">Nombre de usuario</label>
+              <input type="text" name="login" class="form-control" id="login" placeholder="admin-1, admin-2, admin-3"
+                required autofocus />
             </div>
-
-            <div class="form-group col-12 col-md-6">
-              <label for="">Introduzca contraseña <b>(l)</b></label>
-              <input type="password" name="password" id="loginPassword" maxlength="10" placeholder="l" value="" required="required" >
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <input type="password" class="form-control" name="loginPassword" id="loginPassword"
+                placeholder="inprl-123" required />
             </div>
-
-
-
-            <div class="form-row centrado">
-              <div class="col-6 col-lg-6  pb-5 pt-3">
-                <button type="submit" class="btn btn-blue btn-block">Ok</button>
-
-              </div>
-            </div>
+            <div class="text-center"><button type="submit">Entrar</button></div>
           </form>
         </div>
       </div>
 
+    </div>
+  </div>
+  <!-- </section> -->
 
 
   <script type="text/javascript">

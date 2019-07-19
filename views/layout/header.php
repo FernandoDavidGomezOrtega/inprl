@@ -28,7 +28,7 @@
 <body>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-  <div id="preloader"></div>
+  <!-- <div id="preloader"></div> -->
 
   <!--==========================
   welcome Section
@@ -56,7 +56,7 @@
   <header id="header">
     <div class="container">
       <div id="logo" class="pull-left">
-        <a href="#welcome"><img src="assets/images/shield.png" alt="" title="" />INPRL</a>
+        <a href="#welcome" title="Inicio"><img src="assets/images/shield.png" alt="" />INPRL</a>
       </div>
 
       <nav id="nav-menu-container">
@@ -69,12 +69,11 @@
           <li><a href="#location">Dónde estamos</a></li>
         </ul>
       </nav>
-      <!-- #nav-menu-container -->
     </div>
   </header>
-  <!-- #header -->
 
   <!--==========================
   About Section
   ============================-->
-  <main id="about">
+  <div class="" id ="about">
+  

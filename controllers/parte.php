@@ -1,95 +1,19 @@
 <?php
 
-require_once 'models/hojaDiaria.php';
+require_once 'models/parte.php';
 
 require_once 'models/usuario.php';
 
 
 class hojaDiariaController{
-  public function insertDate(){
+  public function parteNuevo(){
     // echo 'Controlador Productos, Acción index';
 
     //renderizar vista
-    require_once 'views/hojaDiaria/insertDate.php';
+    require_once 'views/parte/parteNuevo.php';
   }
 
-  public function insertTicketAnulado(){
-    // echo 'Controlador Productos, Acción index';
-
-    //renderizar vista
-    require_once 'views/hojaDiaria/insertTicketAnulado.php';
-  }
-
-  public function insertTicketCompensacion(){
-    // echo 'Controlador Productos, Acción index';
-
-    //renderizar vista
-    require_once 'views/hojaDiaria/insertTicketsCompensacion.php';
-  }
-
-  public function insertValeMyTaxi(){
-    // echo 'Controlador Productos, Acción index';
-
-    //renderizar vista
-    require_once 'views/hojaDiaria/insertValeMyTaxi.php';
-  }
-
-  public function insertTicketTarjeta(){
-    //renderizar vista
-    require_once 'views/hojaDiaria/insertTicketTarjeta.php';
-  }
-
-  public function insertViajes(){
-    //renderizar vista
-    require_once 'views/hojaDiaria/insertViajes.php';
-  }
-
-  public function insertRecaudacion(){
-    //renderizar vista
-    require_once 'views/hojaDiaria/insertRecaudacion.php';
-  }
-
-  public function insertKmsTotales(){
-    //renderizar vista
-    require_once 'views/hojaDiaria/insertKmsTotales.php';
-  }
-
-  public function insertKmsOcupado(){
-    //renderizar vista
-    require_once 'views/hojaDiaria/insertKmsOcupado.php';
-  }
-
-  public function insertGasoil(){
-    //renderizar vista
-    require_once 'views/hojaDiaria/insertGasoil.php';
-  }
-
-  public function resumen(){
-    //renderizar vista
-    require_once 'views/hojaDiaria/resumen.php';
-  }
-
-  public function consultarHoja(){
-    //renderizar vista
-    require_once 'views/hojaDiaria/consultarHoja.php';
-  }
-
-  public function mostrarConsultaHojaFecha(){
-    //renderizar vista
-    require_once 'views/hojaDiaria/mostrarConsultaHojaFecha.php';
-  }
-
-  public function consultarMesHoja(){
-    //renderizar vista
-    require_once 'views/hojaDiaria/consultarMesHoja.php';
-  }
-
-  public function mostrarConsultaHojaMes(){
-    //renderizar vista
-    require_once 'views/hojaDiaria/mostrarConsultaHojaMes.php';
-  }
-
-
+ 
 
   public function initSessionVars(){
    $_SESSION['fecha_hoja'] = 0;

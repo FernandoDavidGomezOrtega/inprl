@@ -12,6 +12,11 @@ class usuarioController{
     require_once 'views/usuario/signUp.php';
   }
 
+  public function seleccionar_accion(){
+    //renderizar vista
+    require_once 'views/usuario/seleccionar.php';
+  }
+
 
   public function save(){
     if (isset($_POST)) {
@@ -51,24 +56,46 @@ class usuarioController{
   }
 
   public function verifyLogin(){
-    //verificar los datos de logIn
-    if (isset($_POST)) {
-      $user = new Usuario();
-      $user->setNombre($_POST['name']);
-      $user->setPassword($_POST['password']);
+    // header('Location: informacion_riesgos.html');
 
+    // echo "<h1>dsssssssssssssss</h1>";
+    // var_dump($_POST['login']);
+    // die();
+    //verificar los datos de logIn
+
+    // var_dump($_POST['login']);
+    // die();
+
+    if (isset($_POST)) {
+      
+      $user = new Usuario();
+      $user->setLogin($_POST['login']);
+      $user->setPassword($_POST['loginPassword']);
+      
+      
+      
       $identity = $user->verifyLogin();
       // $nuevoUsuario = new Usuario();
-
+      
       // $nombre = $identity->getNombre();
       // echo 'nombre: ';
       // var_dump($nombre);
       // die();
-
+      
       //crear una sesión
       if ($identity && is_object($identity)) {
+        //creamos sesión
         $_SESSION['identity'] = $identity;
         // $nuevo = new Usuario();
+
+
+
+        // var_dump($_SESSION['identity']);
+        // // var_dump($_POST['loginPassword']);
+        // die();
+
+
+
         //
         // var_dump($identity);
         // die();
@@ -79,7 +106,7 @@ class usuarioController{
         //
         //
         // }
-        header('Location: ' . base_url . 'index.php?controller=hojaDiaria&action=initSessionVars');
+        header('Location: ' . base_url . 'index.php?controller=usuario&action=seleccionar_accion');
         // header('Location: ' . base_url . 'index.php?controller=hojaDiaria&action=insertDate');
 
       } else{
