@@ -33,6 +33,7 @@
   <!--==========================
   welcome Section
   ============================-->
+  <?php if(!isset($_SESSION['identity'])): ?>
   <section id="welcome">
     <div class="welcome-container">
       <div class="wow fadeIn">
@@ -49,11 +50,56 @@
       </div>
     </div>
   </section>
+<?php endif; ?>
+
+
+
+
+  <!-- <section id="welcome">
+    <div class="welcome-container">
+      <div class="wow fadeIn">
+        <div class="welcome-logo">
+          <img class="" src="assets/images/shield.png" alt="Logo INPRL">
+        </div>
+
+        <h1>INSTITUTO NACIONAL DE PREVENCIÓN DE RIESGOS LABORALES</h1>
+        <h2>Trabajamos <span class="rotating">por la seguridad laboral, por la prevención de riesgos, para el bienestar del trabajador</span></h2>
+        <div class="actions">
+          <a href="<?= base_url ?>informacion_riesgos.html" class="btn-informacion-riesgos">Información sobre riesgos</a>
+          <a href="index.php?controller=usuario&action=signIn" class="btn-gestionar">Gestionar partes</a>
+        </div>
+      </div>
+    </div>
+  </section> -->
 
   <!--==========================
   Sección de encabezado
   ============================-->
+  <?php if(isset($_SESSION['identity'])): ?>
   <header id="header">
+    <div class="container">
+      <div id="logo" class="pull-left">
+        <a ><img src="assets/images/shield.png" alt="" />Área privada</a>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a style="color: red">Bienvenido/a</a></li>
+          <li class="menu-has-children"><a href="#header">Gestionar partes</a>
+            <ul>
+              <li><a href="<?= base_url ?>index.php?controller=parte&action=parteNuevo">Nuevo parte</a></li>
+              <li><a href="<?= base_url ?>index.php?controller=parte&action=seleccionarParteEditar">Editar / Eliminar partes</a></li>
+              <li><a href="#danios">Buscar partes</a></li>
+              <li><a href="#riesgos">Listar todos los partes</a></li>
+            </ul>
+          </li>
+          <li><a href="<?= base_url ?>index.php?controller=usuario&action=logout">Cerrar sesión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<?php else: ?>
+<header id="header">
     <div class="container">
       <div id="logo" class="pull-left">
         <a href="#welcome" title="Inicio"><img src="assets/images/shield.png" alt="" />INPRL</a>
@@ -71,9 +117,13 @@
       </nav>
     </div>
   </header>
+<?php endif; ?>
+
+
 
   <!--==========================
   About Section
   ============================-->
-  <div class="" id ="about">
+  <div class="" id ="">   
+  <!-- <div class="" id ="about">   verificar si está bien así -->
   

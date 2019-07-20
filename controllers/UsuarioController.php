@@ -117,13 +117,27 @@ class usuarioController{
 
   }
 
-  public function unsetSession(){
-    if (isset($_SESSION['identity'])) {
-      unset($_SESSION);
+  // public function unsetSession(){
+  //   if (isset($_SESSION['identity'])) {
+  //     unset($_SESSION);
+  //     session_destroy();
+  //   }
+
+
+  //   header('Location: ' .base_url);
+  // }
+
+  public function logout(){
+		if(isset($_SESSION['identity'])){
+      unset($_SESSION['identity']);
       session_destroy();
-    }
-
-
-    header('Location: ' .base_url);
-  }
+		}
+		
+		if(isset($_SESSION['admin'])){
+      unset($_SESSION['admin']);
+      session_destroy();
+		}
+		
+		header("Location:".base_url);
+	}
 }

@@ -248,3 +248,13 @@
 </body>
 
 </html>
+
+
+<?php while($trabajador = $trabajadores->fetch_object()): ?>
+<tr>
+<td>partenuevo</td>
+  <td><?=$trabajador->nombre_trabajador;?></td>
+  <td><?=$trabajador->dni;?></td>
+
+</tr>
+<?php endwhile; ?>

@@ -13,12 +13,12 @@
 
 
   <?php if (isset($_SESSION['errorLogin'])) : ?>
-  <div class="container" id ="">
-  <div class="row ">
-    <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-danger text-center" role="alert">
-      <?php echo $_SESSION['errorLogin'] ?>
+  <div class="container" id="">
+    <div class="row ">
+      <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-danger text-center" role="alert">
+        <p><?php echo $_SESSION['errorLogin'] ?></p>
+      </div>
     </div>
-  </div>
   </div>
   <?php Utils::deleteSession('errorLogin'); endif; ?>
 

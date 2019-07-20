@@ -1,5 +1,5 @@
 </div>
-    </section>
+    <!-- </section>      ver si funciona bien así -->
 
   <!--==========================
   Footer
