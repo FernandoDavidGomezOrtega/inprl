@@ -10,19 +10,38 @@
   <div class="container" id="">
     <div class="row ">
       <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-success text-center" role="alert">
-        <p>El parte ha sido guardado correctamente</p>
+        <p>El parte ha sido editado correctamente</p>
       </div>
     </div>
   </div>
   <?php elseif (isset($_SESSION['save']) && isset($_SESSION['save']) == 'failed') : ?>
   <div class="row ">
     <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-danger text-center" role="alert">
-      <p>El parte NO ha podido ser guardado. Vuelve a intentarlo por favor.</p>
+      <p>Se ha producido un fallo en la conexión. Vuelve a intentarlo por favor.</p>
     </div>
   </div>
 </div>
 <?php endif; ?>
 <?php Utils::deleteSession('save'); ?>
+
+<!-- mensaje de exito o fallo en delete -->
+<?php if (isset($_SESSION['delete']) && isset($_SESSION['delete']) == 'complete') : ?>
+  <div class="container" id="">
+    <div class="row ">
+      <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-success text-center" role="alert">
+        <p>El parte ha sido eliminado correctamente</p>
+      </div>
+    </div>
+  </div>
+  <?php elseif (isset($_SESSION['delete']) && isset($_SESSION['delete']) == 'failed') : ?>
+  <div class="row ">
+    <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-danger text-center" role="alert">
+      <p>Se ha producido un fallo en la conexión. Vuelve a intentarlo por favor.</p>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
+<?php Utils::deleteSession('delete'); ?>
 
 
 <div class="row">
@@ -48,7 +67,6 @@
             <option selected="selected" value="" disabled>Elegir parte</option>
 
             <?php while($parte = $partes->fetch_object()): ?>
-            <!-- <option value="">tres</option>; -->
             <option value="<?=$parte->cod_parte;?>"><?=$parte->cod_parte;?></option>;
 
             <?php endwhile; ?>

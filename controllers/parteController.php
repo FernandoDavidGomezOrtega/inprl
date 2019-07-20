@@ -61,7 +61,7 @@ class parteController{
 			require_once 'views/parte/editar.php';
 			
 		}else{
-      $_SESSION['parte_no_existe'];
+      $_SESSION['parte_no_existe'] = 'no existe';
 			header('Location:'.base_url.'parte/seleccionarParteEditar');
 		}
 	}
@@ -85,6 +85,66 @@ class parteController{
         $_SESSION['save'] = "failed";
         header('Location: ' . base_url . 'index.php?controller=parte&action=parteNuevo');
       }
+    }
+
+    public function update(){
+      $parte = new Parte();
+      $parte->setFecha_accidente($_POST['fecha_accidente']);
+      $parte->setDni($_POST['dni']);
+      
+      ///////// debug ////////////////
+      // echo ('$_POST["dni"]  es igual a: ');
+      // var_dump($_POST['dni']);
+      // die();
+      ///////// end debug /////////
+      $parte->setLogin($_SESSION['identity']->login);
+      $parte->setCausa_accidente($_POST['causa_accidente']);
+      $parte->setTipo_lesion($_POST['tipo_lesion']);
+      $parte->setPartes_cuerpo_lesionado($_POST['partes_cuerpo_lesionado']);
+      $parte->setGravedad($_POST['gravedad']);
+      $parte->setBaja($_POST['baja']);
+
+      $save = $parte->save();
+
+      ///////// debug ////////////////
+      // echo ('$save  es igual a: ');
+      // var_dump($save);
+      // die();
+      ///////// end debug /////////
+      if ($save) {
+        $_SESSION['save'] = "complete";
+        header('Location: ' . base_url . 'index.php?controller=parte&action=seleccionarParteEditar');
+      } else{
+        $_SESSION['save'] = "failed";
+        header('Location: ' . base_url . 'index.php?controller=parte&action=seleccionarParteEditar');
+      }
+    }
+
+    public function delete(){
+
+      ///////// debug ////////////////
+      // echo ('cod_parte  es igual a: ');
+      // var_dump($_GET['cod_parte']);
+      // die();
+      ///////// end debug /////////
+      // Utils::isAdmin();
+      
+      if(isset($_GET['cod_parte'])){
+        $cod_parte = $_GET['cod_parte'];
+        $parte = new Parte();
+        $parte->setCod_parte($cod_parte);
+        
+        $delete = $parte->delete();
+        if($delete){
+          $_SESSION['delete'] = 'complete';
+        }else{
+          $_SESSION['delete'] = 'failed';
+        }
+      }else{
+        $_SESSION['delete'] = 'failed';
+      }
+      
+      header('Location:'.base_url.'index.php?controller=parte&action=seleccionarParteEditar');
     }
 
 }

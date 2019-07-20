@@ -210,6 +210,25 @@ class Parte{
     return $result;
   }
 
+  public function update(){
+		$sql = "UPDATE parte SET dni='{$this->getDni()}', fecha_accidente ={$this->getFecha_Accidente()}, causa_accidente={$this->getCausa_accidente()}, tipo_lesion={$this->getTipo_lesion()}, partesCuerpo_lesionado ={$this->getPartes_cuerpo_lesionado()}, gravedad={$this->getGravedad()}, baja={$this->getBaja()}  ";
+		
+		$sql .= " WHERE cod_parte={$this->getCod_parte()};";
+		
+		///////// debug ////////////////
+    echo ('$sql  es igual a: ');
+    var_dump($sql);
+    die();
+    ///////// end debug /////////
+		$save = $this->db->query($sql);
+		
+		$result = false;
+		if($save){
+			$result = true;
+		}
+		return $result;
+	}
+
   public function getAll(){
 		$partes = $this->db->query("SELECT * FROM parte ORDER BY cod_parte ASC");
 		return $partes;
@@ -229,5 +248,14 @@ class Parte{
 		return $result;
   }
   
-
+  public function delete(){
+		$sql = "DELETE FROM parte WHERE cod_parte = {$this->cod_parte } ";
+		$delete = $this->db->query($sql);
+		
+		$result = false;
+		if($delete){
+			$result = true;
+		}
+		return $result;
+	}
 }
