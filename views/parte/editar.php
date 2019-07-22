@@ -10,7 +10,7 @@
 
     <div class="row">
       <div class="form col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2">
-        <form action="<?=base_url?>parte/update" method="post">
+        <form action="<?= base_url ?>index.php?controller=parte&action=update" method="post">
 
           <div class="form-group ">
             <label for="">Código de accidente</label>

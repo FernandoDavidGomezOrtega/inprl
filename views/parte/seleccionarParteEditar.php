@@ -15,6 +15,7 @@
     </div>
   </div>
   <?php elseif (isset($_SESSION['save']) && isset($_SESSION['save']) == 'failed') : ?>
+  <div class="container" id="">
   <div class="row ">
     <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-danger text-center" role="alert">
       <p>Se ha producido un fallo en la conexión. Vuelve a intentarlo por favor.</p>
@@ -24,16 +25,38 @@
 <?php endif; ?>
 <?php Utils::deleteSession('save'); ?>
 
-<!-- mensaje de exito o fallo en delete -->
-<?php if (isset($_SESSION['delete']) && isset($_SESSION['delete']) == 'complete') : ?>
-  <div class="container" id="">
-    <div class="row ">
-      <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-success text-center" role="alert">
-        <p>El parte ha sido eliminado correctamente</p>
-      </div>
+
+<!-- mensaje de exito o fallo en update -->
+<?php if (isset($_SESSION['update']) && isset($_SESSION['update']) == 'complete') : ?>
+<div class="container" id="">
+  <div class="row ">
+    <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-success text-center" role="alert">
+      <p>El parte ha sido actualizado correctamente</p>
     </div>
   </div>
-  <?php elseif (isset($_SESSION['delete']) && isset($_SESSION['delete']) == 'failed') : ?>
+</div>
+<?php elseif (isset($_SESSION['update']) && isset($_SESSION['update']) == 'failed') : ?>
+<div class="container" id="">
+  <div class="row ">
+    <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-danger text-center" role="alert">
+      <p>Se ha producido un fallo en la conexión. Vuelve a intentarlo por favor.</p>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
+<?php Utils::deleteSession('update'); ?>
+
+<!-- mensaje de exito o fallo en delete -->
+<?php if (isset($_SESSION['delete']) && isset($_SESSION['delete']) == 'complete') : ?>
+<div class="container" id="">
+  <div class="row ">
+    <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-success text-center" role="alert">
+      <p>El parte ha sido eliminado correctamente</p>
+    </div>
+  </div>
+</div>
+<?php elseif (isset($_SESSION['delete']) && isset($_SESSION['delete']) == 'failed') : ?>
+<div class="container" id="">
   <div class="row ">
     <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-danger text-center" role="alert">
       <p>Se ha producido un fallo en la conexión. Vuelve a intentarlo por favor.</p>
@@ -42,6 +65,18 @@
 </div>
 <?php endif; ?>
 <?php Utils::deleteSession('delete'); ?>
+
+<!-- mensaje de parte no encontrado -->
+<?php if (isset($_SESSION['parte_no_existe'])) : ?>
+<div class="container" id="">
+  <div class="row ">
+    <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-danger text-center" role="alert">
+      <p>El parte indicado NO existe o pertenece a otro administrador.</p>
+    </div>
+  </div>
+</div>
+<?php endif; ?>
+<?php Utils::deleteSession('parte_no_existe'); ?>
 
 
 <div class="row">
@@ -52,7 +87,7 @@
         <div class="form-group">
           <div class="form-group">
             <label for="">Introduzca un código de parte</label>
-            <input type="text" class="form-control" name="cod_parte" value="" placeholder="Máximo 5 dígitos"
+            <input type="number" class="form-control" name="cod_parte" value="" placeholder="Máximo 5 dígitos"
               maxlength="5" required="required"></textarea>
           </div>
           <div class="text-center"><button type="submit">Ok</button></div>
@@ -80,6 +115,4 @@
       </form>
     </div>
   </div>
-</div>
-
-
+<!-- </div> -->

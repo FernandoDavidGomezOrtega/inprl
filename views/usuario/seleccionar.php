@@ -40,15 +40,15 @@
           <p class="service-description">Aquí puede seleccionar un parte para modificarlo o eliminarlo.</p>
         </div>
         <div class="col-md-4 service-item">
-          <div class="service-icon"><i class="fa fa-search"></i></div>
-          <h4 class="service-title"><a href="">Buscar partes</a></h4>
+          <div class="service-icon"><a href="<?= base_url ?>index.php?controller=parte&action=buscarPartesForm"><i class="fa fa-search"></i></a></div>
+          <h4 class="service-title"><a href="<?= base_url ?>index.php?controller=parte&action=buscarPartesForm">Buscar partes</a></h4>
           <p class="service-description">Aquí puede consultar todos los partes introduciendo diferentes parámetros de búsqueda. <br>
             Solamente tiene acceso a sus partes.
           </p>
         </div>
         <div class="col-md-4 service-item">
-          <div class="service-icon"><i class="fa fa-database"></i></div>
-          <h4 class="service-title"><a href="">Consultar todos los partes existentes</a></h4>
+        <div class="service-icon"><a href="<?= base_url ?>index.php?controller=parte&action=listAll"><i class="fa fa-database"></i></a></div>
+          <h4 class="service-title"><a href="<?= base_url ?>index.php?controller=parte&action=listAll">Consultar todos los partes existentes</a></h4>
           <p class="service-description">Esta opción permite ver todos los partes existentes en la base de datos. <br>
           Ésta funcionalidad está pensada para poder comprobar los resultados de las búsquedas.
         </p>

@@ -43,7 +43,7 @@ CREATE TABLE login
 (
 	login VARCHAR(30) NOT NULL,
 	password VARCHAR(10) NOT NULL,
-	CONSTRAINT pk_login PRIMARY KEY(login)
+	CONSTRAINT pk_login PRIMARY KEY(login),
 	CONSTRAINT uq_login UNIQUE(login) 
 )DEFAULT CHARACTER SET = utf8;
 

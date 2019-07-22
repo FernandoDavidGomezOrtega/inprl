@@ -34,6 +34,39 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 100%;
 }
 
+.bg-03c5ec{
+  background: #03c5ec;
+}
+
+.bg-03c5ec:hover{
+  background: #03c5ec !important;
+}
+
+.color-03C4EB{
+  color: #03C4EB !important;
+}
+
+.button-03C4EB {
+  background: #03C4EB;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff !important;
+  /* transition: 0.4s; */
+  margin: 20px 20px 60px 20px !important;
+}
+
+.prc-0px{
+  padding-right: 0px !important;
+}
+
+.plc-6px{
+  padding-left: 6px !important;
+}
+
+.pbc-0px{
+  padding-bottom: 0px;
+}
+
 /* Prelaoder */
 #preloader {
   position: fixed;
@@ -161,7 +194,8 @@ h1, h2, h3, h4, h5, h6 {
   margin: 10px;
 }
 
-#welcome .btn-informacion-riesgos, #welcome-informacion .btn-informacion-riesgos {
+.btn-informacion-riesgos {
+  /* #welcome .btn-informacion-riesgos, #welcome-informacion .btn-informacion-riesgos { */
   background: #03C4EB;
   border: 2px solid #03C4EB;
   color: #fff;
@@ -189,7 +223,8 @@ h1, h2, h3, h4, h5, h6 {
 #header {
   background: #111;
   padding: 20px 0;
-  height: 90px;
+  /* height: 90px; */
+  max-height: 115px;
 }
 
 #header #logo {
@@ -213,7 +248,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #header #logo img {
   padding: 0;
-  margin: 0;
+  margin: 0px 30px 0px 0px;
   max-height: 50px;
 }
 
@@ -486,7 +521,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------*/
 #about {
   background: #fff;
-  padding: 80px 0;
+  padding: 30px 0;
 }
 
 #about .about-container {
@@ -519,7 +554,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------*/
 #contact, #location {
   background: #f7f7f7;
-  padding: 80px 0;
+  padding: 30px 0px 0px 0px;
 }
 
 #contact .info, #location .info {
@@ -629,7 +664,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #services {
   background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("../img/services-bg.jpg") fixed center center;
   background-size: cover;
-  padding: 80px 0 60px 0;
+  padding: 30px 0 0 0;
 }
 
 #services .service-item {

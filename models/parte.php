@@ -211,34 +211,44 @@ class Parte{
   }
 
   public function update(){
-		$sql = "UPDATE parte SET dni='{$this->getDni()}', fecha_accidente ={$this->getFecha_Accidente()}, causa_accidente={$this->getCausa_accidente()}, tipo_lesion={$this->getTipo_lesion()}, partesCuerpo_lesionado ={$this->getPartes_cuerpo_lesionado()}, gravedad={$this->getGravedad()}, baja={$this->getBaja()}  ";
+		$sql = "UPDATE parte SET dni='{$this->getDni()}', fecha_accidente ='{$this->getFecha_Accidente()}', causa_accidente='{$this->getCausa_accidente()}', tipo_lesion='{$this->getTipo_lesion()}', partes_cuerpo_lesionado ='{$this->getPartes_cuerpo_lesionado()}', gravedad='{$this->getGravedad()}', baja='{$this->getBaja()}'  ";
 		
-		$sql .= " WHERE cod_parte={$this->getCod_parte()};";
-		
-		///////// debug ////////////////
-    echo ('$sql  es igual a: ');
-    var_dump($sql);
-    die();
+    // $sql .= " WHERE cod_parte=100";
+    $sql .= " WHERE cod_parte={$this->getCod_parte()}";
+    
+		$update = $this->db->query($sql);
+    ///////// debug ////////////////
+    // echo ('$update  es igual a: ');
+    // var_dump($update);
+    // die();
     ///////// end debug /////////
-		$save = $this->db->query($sql);
 		
 		$result = false;
-		if($save){
-			$result = true;
+		if($update){
+      $result = true;
 		}
+    ///////// debug ////////////////
+    // echo ('$result  es igual a: ');
+    // var_dump($result);
+    // die();
+    ///////// end debug /////////
 		return $result;
 	}
 
   public function getAll(){
-		$partes = $this->db->query("SELECT * FROM parte ORDER BY cod_parte ASC");
+    $sql = "SELECT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = trabajador.dni ORDER BY cod_parte ASC";
+  // $sql = "SELECT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = '{$this->dni}' ";
+
+		$partes = $this->db->query($sql);
 		return $partes;
   }
   
   public function getOne(){
-    $parte = $this->db->query("SELECT * FROM parte WHERE cod_parte = {$this->cod_parte}");
+    $sql = "SELECT * FROM parte WHERE cod_parte = {$this->cod_parte} and login = '{$_SESSION['identity']->login}'";
+  $parte = $this->db->query($sql);
     ///////// debug ////////////////
-    // echo ('$this->cod_parte  es igual a: ');
-    // var_dump($this->cod_parte);
+    // echo ('$sql  es igual a: ');
+    // var_dump($sql);
     // die();
     ///////// end debug /////////
     $result = "false";
@@ -257,5 +267,85 @@ class Parte{
 			$result = true;
 		}
 		return $result;
-	}
+  }
+
+  public function mostrarNombreDesdeDni($dni){
+    $sql = "SELECT * FROM trabajador WHERE dni = '{$dni}' LIMIT 1";
+    $mostrar = $this->db->query($sql);
+
+    $result = false;
+		if($mostrar){
+			$result = $mostrar;
+		}
+		return $result;
+  }
+  
+  public function search(){
+  //Crear la sentencia SQL con los parámetros recibidos por $_POST
+
+  $sql = "SELECT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = '{$this->dni}' ";
+  // $sql = "SELECT DISTINCT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = '{$this->dni}' ";
+
+  $sql = $sql . " where login = '{$_SESSION['identity']->login}' ";
+
+  if ($this->cod_parte !="") {
+    $sql = $sql . " && cod_parte = {$this->cod_parte} ";
+  }
+
+  if ($this->fecha_accidente !="") {
+    $sql = $sql . " && fecha_accidente = '{$this->fecha_accidente}' ";
+  }
+
+  if ($this->dni !="") {
+    $sql = $sql . " && trabajador.dni = '{$this->dni}' ";
+  }
+
+  if ($this->causa_accidente !="") {
+    $sql = $sql . " && causa_accidente = '{$this->causa_accidente}' ";
+  }
+
+  if ($this->tipo_lesion !="") {
+    $sql = $sql . " && tipo_lesion = '{$this->tipo_lesion}' ";
+  }
+
+  if ($this->partes_cuerpo_lesionado !="") {
+    $sql = $sql . " && partes_cuerpo_lesionado = '{$this->partes_cuerpo_lesionado}' ";
+  }
+
+  if ($this->gravedad !="") {
+    $sql = $sql . "  && gravedad = '{$this->gravedad}' ";
+  }
+
+  if ($this->baja !="") {
+    $sql = $sql . " && baja = '{$this->baja}' ";
+  }
+
+
+
+
+  ///////// debug ////////////////
+  // echo ('$sql  es igual a: ');
+  // var_dump($sql);
+  // die();
+  ///////// end debug /////////
+  
+
+//Variable para mostrar el nombre del trabajador
+
+    // $result = $conexion->query($sql2 ="select nombre_trabajador from trabajador where dni = '$dni'");
+    // $row = $result->fetch_assoc();
+    // $nombreAMostrar = $row['nombre_trabajador'];
+
+//Variable para mostrar la cantidad de partes coincidentes con la búsqueda
+$result = $this->db->query($sql);
+    // $row = $result->fetch_assoc();
+    // $cantidadResultados = $result->num_rows;
+
+
+
+
+
+
+		return $result;
+  }
 }

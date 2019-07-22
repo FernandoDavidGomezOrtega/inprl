@@ -84,13 +84,14 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li><a style="color: red">Bienvenido/a</a></li>
+          <li><a class="color-03C4EB prc-0px">Bienvenido/a  </a>
+          <a class="color-03C4EB text-uppercase plc-6px"> <?=$_SESSION['identity']->login ?> </a></li>
           <li class="menu-has-children"><a href="#header">Gestionar partes</a>
             <ul>
               <li><a href="<?= base_url ?>index.php?controller=parte&action=parteNuevo">Nuevo parte</a></li>
               <li><a href="<?= base_url ?>index.php?controller=parte&action=seleccionarParteEditar">Editar / Eliminar partes</a></li>
-              <li><a href="#danios">Buscar partes</a></li>
-              <li><a href="#riesgos">Listar todos los partes</a></li>
+              <li><a href="<?= base_url ?>index.php?controller=parte&action=buscarPartesForm">Buscar partes</a></li>
+              <li><a href="<?= base_url ?>index.php?controller=parte&action=listAll">Listar todos los partes</a></li>
             </ul>
           </li>
           <li><a href="<?= base_url ?>index.php?controller=usuario&action=logout">Cerrar sesión</a></li>
