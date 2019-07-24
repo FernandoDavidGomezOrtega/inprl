@@ -10,7 +10,9 @@
   <div class="container" id="">
     <div class="row ">
       <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-success text-center" role="alert">
-        <p>El parte ha sido guardado correctamente</p>
+        <p>El parte ha sido guardado correctamente. <br>
+          El código es: <strong><?= $_SESSION['index'] ?></strong> 
+      </p>
       </div>
     </div>
   </div>
@@ -23,6 +25,7 @@
   </div>
   <?php endif; ?>
   <?php Utils::deleteSession('save'); ?>
+  <?php Utils::deleteSession('index'); ?>
 
 
   <div class="row">
@@ -42,7 +45,7 @@
               <option selected="selected" value="" disabled>Elegir trabajador</option>
 
               <?php while($trabajador = $trabajadores->fetch_object()): ?>
-              <option value="<?=$trabajador->dni;?>"><?=$trabajador->nombre_trabajador;?></option>;
+              <option value="<?=$trabajador->dni;?>"><?=$trabajador->nombre_trabajador;?> || DNI: <?= $trabajador->dni ?></option>;
 
               <?php endwhile; ?>
             </select>

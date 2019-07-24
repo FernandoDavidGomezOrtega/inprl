@@ -116,9 +116,17 @@ class parteController
         $parte->setGravedad($_POST['gravedad']);
         $parte->setBaja($_POST['baja']);
 
+
+
         $save = $parte->save();
         if ($save) {
+            ///////// debug ////////////////
+            // echo ('$save  es igual a: ');
+            // var_dump($save);
+            // die();
+            ///////// end debug /////////
             $_SESSION['save'] = "complete";
+            $_SESSION['index'] = $save;
             header('Location: ' . base_url . 'index.php?controller=parte&action=parteNuevo');
         } else {
             $_SESSION['save'] = "failed";
@@ -188,56 +196,104 @@ class parteController
             $_SESSION['delete'] = 'failed';
         }
       
-        header('Location:'.base_url.'index.php?controller=parte&action=seleccionarParteEditar');
+        header('Location: '.base_url.'index.php?controller=parte&action=seleccionarParteEditar');
     }
 
     public function buscarPartes()
     {
         // todo lo recibido por POST
-        $codParte = $_POST['cod_parte'];
-        $fechaAccidente = $_POST['fecha_accidente'];
+        $cod_parte = $_POST['cod_parte'];
+        ///////// debug ////////////////
+        // echo ('$_POST[cod_parte]  es igual a: ');
+        // var_dump($_POST['cod_parte']);
+        // die();
+        ///////// end debug /////////
 
-        if (empty($_POST['dni'])) {
-            $dni = "";
-        } else {
+        $fecha_accidente = $_POST['fecha_accidente'];
+        ///////// debug ////////////////
+        // echo (' $_POST[fecha_accidente]  es igual a: ');
+        // var_dump( $_POST['fecha_accidente']);
+        // die();
+        ///////// end debug /////////
+
+        // if (empty($_POST['dni']) || $_POST['dni'] == "" || !isset($_POST['dni']) || $_POST['dni'] == undefined) {
+        //     $dni = "";
+        // } else {
+        //     $dni = $_POST['dni'];
+        // }
+
+        if ($_POST['dni'] != 0){
             $dni = $_POST['dni'];
+        }else {
+            $dni = "";
         }
+        ///////// debug ////////////////
+        // echo ('$dni  es igual a: ');
+        // var_dump($dni);
+        // die();
+        ///////// end debug /////////
 
-        $causaAccidente = $_POST['causa_accidente'];
-        $tipoLesion = $_POST['tipo_lesion'];
-        $partesLesionadas = $_POST['partes_cuerpo_lesionado'];
+        $causa_accidente = $_POST['causa_accidente'];
+        $tipo_lesion = $_POST['tipo_lesion'];
+        $partes_cuerpo_lesionado = $_POST['partes_cuerpo_lesionado'];
 
-        if (empty($_POST['gravedad'])) {
+        if ($_POST['gravedad'] == '0') {
             $gravedad = "";
         } else {
             $gravedad = $_POST['gravedad'];
         }
 
-        if (empty($_POST['baja'])) {
+        if ($_POST['baja'] == '0') {
             $baja = "";
         } else {
             $baja = $_POST['baja'];
         }
 
-        if (($codParte=="") && ($fechaAccidente=="") && ($dni=="") && ($causaAccidente=="") && ($tipoLesion=="") && ($partesLesionadas=="") && ($gravedad=="") && ($baja=="")) {
-            header("Location: " .  base_url . " index.php?controller=parte&action=buscarPartesView");
-        }
+        ///////// debug ////////////////
+        // echo ('$_POST[baja]  es igual a: ');
+        // var_dump($_POST['baja']);
+        // // die();
 
-        //cramos el objeto parte
-        $cod_parte = $_POST['cod_parte'];
-        $dni = $_POST['dni'];
-        $login = $_SESSION['identity']->login;
-        $fecha_accidente = $_POST['fecha_accidente'];
-        $causa_accidente = $_POST['causa_accidente'];
-        $tipo_lesion = $_POST['tipo_lesion'];
-        $partes_cuerpo_lesionado = $_POST['partes_cuerpo_lesionado'];
-        $gravedad = $_POST['gravedad'];
-        $baja = $_POST['baja'];
+        // echo ('$baja  es igual a: ');
+        // var_dump($baja);
+        // die();
+        ///////// end debug /////////
 
+        // if (($cod_parte=="") && ($fecha_accidente=="") && ($dni=="") && ($causa_accidente=="") && ($tipo_lesion=="") && ($partes_cuerpo_lesionado=="") && ($gravedad=="") && ($baja=="")) {
+        //     header("Location: " .  base_url . "index.php?controller=parte&action=buscarPartesForm");
+        // } else {
+        // todo lo recibido por POST
+        // $codParte = $_POST['cod_parte'];
+
+        // $fechaAccidente = $_POST['fecha_accidente'];
+
+        // if ($_POST['dni'] != 0){
+        //     $dni = $_POST['dni'];
+        // }else {
+        //     $dni = "";
+        // }
+
+        // $causaAccidente = $_POST['causa_accidente'];
+        // $tipoLesion = $_POST['tipo_lesion'];
+        // $partesLesionadas = $_POST['partes_cuerpo_lesionado'];
+
+        // if ($_POST['gravedad'] == 0) {
+        //     $gravedad = "";
+        // } else {
+        //     $gravedad = $_POST['gravedad'];
+        // }
+
+        // if ($_POST['baja'] == 0) {
+        //     $baja = "";
+        // } else {
+        //     $baja = $_POST['baja'];
+        // }
+        
+        //creamos el objeto parte 
         $parte = new Parte();
         $parte->setCod_parte($cod_parte);
         $parte->setDni($dni);
-        $parte->setLogin($login);
+        $parte->setLogin($_SESSION['identity']->login);
         $parte->setFecha_accidente($fecha_accidente);
         $parte->setCausa_accidente($causa_accidente);
         $parte->setTipo_lesion($tipo_lesion);
@@ -245,33 +301,33 @@ class parteController
         $parte->setGravedad($gravedad);
         $parte->setBaja($baja);
 
-        //variable para mostrar el nombre del trabajador
-        // $trabajador = new Trabajador();
-        // $trabajadores = $trabajador->getAll();
-
-        ///////// debug ////////////////
-        // echo ('criteriosBusqueda  es igual a: ');
-        // var_dump($criteriosBusqueda);
+        //realizamos la busqueda
+        $search = $parte->search();
+        // ///////// debug ////////////////
+        // echo ('$search->num_rows  es igual a: ');
+        // var_dump($search->num_rows);
         // die();
         ///////// end debug /////////
 
-        //realizamos la busqueda
-        $search = $parte->search();
+
 
         if ($dni != ""){
           $nombreDelTrabajador = $parte->mostrarNombreDesdeDni($dni);
           $trabajador = $nombreDelTrabajador->fetch_object();
           $nombreDelTrabajador = $trabajador->nombre_trabajador;
 
-          ///////// debug ////////////////
-          // echo ('$nombreDelTrabajador  es igual a: ');
-          // var_dump($nombreDelTrabajador);
-          // die();
-          ///////// end debug /////////
+          ///// debug ////////////////
+        //   echo ('$nombreDelTrabajador  es igual a: ');
+        //   var_dump($nombreDelTrabajador);
+        //   die();
+          ///// end debug /////////
         }
-
+        
         //renderizar vista para mostrar los resultados de la busqueda
         require_once 'views/parte/mostrarResultados.php';
+
+        // }
+
       
     }
 } // end class

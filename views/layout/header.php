@@ -45,7 +45,7 @@
         <h2>Trabajamos <span class="rotating">por la seguridad laboral, por la prevención de riesgos, para el bienestar del trabajador</span></h2>
         <div class="actions">
           <a href="<?= base_url ?>informacion_riesgos.html" class="btn-informacion-riesgos">Información sobre riesgos</a>
-          <a href="index.php?controller=usuario&action=signIn" class="btn-gestionar">Gestionar partes</a>
+          <a href="<?= base_url ?>index.php?controller=usuario&action=signIn" class="btn-gestionar">Gestionar partes</a>
         </div>
       </div>
     </div>
@@ -79,7 +79,7 @@
   <header id="header">
     <div class="container">
       <div id="logo" class="pull-left">
-        <a ><img src="assets/images/shield.png" alt="" />Área privada</a>
+        <a href="<?= base_url ?>index.php?controller=usuario&action=seleccionar_accion"  title="Área privada"><img src="assets/images/shield.png" alt="Logo Inrpl" />Área privada</a>
       </div>
 
       <nav id="nav-menu-container">
@@ -89,9 +89,9 @@
           <li class="menu-has-children"><a href="#header">Gestionar partes</a>
             <ul>
               <li><a href="<?= base_url ?>index.php?controller=parte&action=parteNuevo">Nuevo parte</a></li>
-              <li><a href="<?= base_url ?>index.php?controller=parte&action=seleccionarParteEditar">Editar / Eliminar partes</a></li>
+              <li><a href="<?= base_url ?>index.php?controller=parte&action=seleccionarParteEditar">Modificar  / Eliminar partes</a></li>
               <li><a href="<?= base_url ?>index.php?controller=parte&action=buscarPartesForm">Buscar partes</a></li>
-              <li><a href="<?= base_url ?>index.php?controller=parte&action=listAll">Listar todos los partes</a></li>
+              <li><a href="<?= base_url ?>index.php?controller=parte&action=listAll" target="_blank">Listar todos los partes</a></li>
             </ul>
           </li>
           <li><a href="<?= base_url ?>index.php?controller=usuario&action=logout">Cerrar sesión</a></li>
@@ -112,8 +112,8 @@
           <li><a href="<?= base_url ?>#about">El INPRL</a></li>
           <li><a href="<?= base_url ?>informacion_riesgos.html">Información sobre riesgos</a></li>
           <li><a href="<?= base_url ?>index.php?controller=usuario&action=signIn">Gestionar partes</a></li>
-          <li><a href="#contact">Contacto</a></li>
-          <li><a href="#location">Dónde estamos</a></li>
+          <li><a href="<?= base_url ?>#contact">Contacto</a></li>
+          <li><a href="<?= base_url ?>#location">Dónde estamos</a></li>
         </ul>
       </nav>
     </div>
@@ -125,6 +125,6 @@
   <!--==========================
   About Section
   ============================-->
-  <div class="" id ="">   
+  <!-- <div class="" id ="">    -->
   <!-- <div class="" id ="about">   verificar si está bien así -->
   

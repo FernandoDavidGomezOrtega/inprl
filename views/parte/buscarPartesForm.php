@@ -4,7 +4,7 @@
       <h3 class="section-title">Buscar partes</h3>
       <div class="section-title-divider"></div>
       <p class="section-description">Introduzca uno o varios parámetros de búsqueda. <br>
-      <a href="" target="_blank">En éste enlace</a> puede listar todos los partes existentes para verificar el funcionamiento 
+      <a href="<?= base_url ?>index.php?controller=parte&action=listAll" target="_blank">En éste enlace</a> puede listar todos los partes existentes para verificar el funcionamiento 
       del sistema de búsquedas.
       </p>
     </div>
@@ -49,10 +49,9 @@
           <div class="form-group">
             <label for="">Trabajador/a</label>
             <select class="form-control" name="dni" >
-              <option selected="selected" value="" disabled>Elegir trabajador</option>
+              <option selected="selected" value="0" readonly >Elegir trabajador</option>
 
               <?php while($trabajador = $trabajadores->fetch_object()): ?>
-              <!-- <option value="">tres</option>; -->
               <option value="<?=$trabajador->dni;?>"><?=$trabajador->nombre_trabajador;?></option>;
 
               <?php endwhile; ?>
@@ -78,7 +77,7 @@
           <div class="form-group">
             <label for="">Gravedad</label>
             <select class="form-control" name="gravedad" >
-              <option selected="selected" value="" readonly>Elegir</option>
+              <option selected="selected" value="0" readonly >Elegir</option>
               <option value="Baja">Baja</option>
               <option value="Normal">Normal</option>
               <option value="Alta">Alta</option>
@@ -87,7 +86,7 @@
           <div class="form-group">
             <label for="">Causa Baja</label>
             <select class="form-control" name="baja" >
-              <option selected="selected" value="" readonly>Elegir</option>
+              <option selected="selected" value="0" readonly >Elegir</option>
               <option value="Sí">Sí</option>
               <option value="No">No</option>
             </select>

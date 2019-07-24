@@ -67,6 +67,14 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 0px;
 }
 
+.mbc-30px{
+  margin-bottom: 30px !important;
+}
+
+.mtc-30px{
+  margin-top: 30px;
+}
+
 /* Prelaoder */
 #preloader {
   position: fixed;
@@ -266,6 +274,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .is-sticky #header {
   background: rgba(0, 0, 0, 0.85);
+}
+
+/*--------------------------------------------------------------
+# seleccionar-parte-modificar Menu
+--------------------------------------------------------------*/
+#seleccionar-parte-modificar{
+  margin: 90px 0 100px 0;
 }
 
 /*--------------------------------------------------------------
@@ -707,6 +722,17 @@ body.mobile-nav-active #mobile-nav-toggle {
 #services .service-description {
   margin-left: 80px;
   line-height: 24px;
+}
+
+/*--------------------------------------------------------------
+# mostrarResultados
+--------------------------------------------------------------*/
+#mostrarResultados h1{
+  margin-top: 5% !important;
+}
+
+#mostrarResultados .alert{
+  margin-bottom: 40px !important;
 }
 
 /*--------------------------------------------------------------

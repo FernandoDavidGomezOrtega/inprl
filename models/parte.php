@@ -203,9 +203,25 @@ class Parte{
 
     $save = $this->db->query($sql);
 
+    ///////// debug ////////////////
+    // echo ('$sql  es igual a: ');
+    // var_dump($sql);
+    // die();
+    ///////// end debug /////////
+
+    $sql = "SELECT cod_parte FROM parte where cod_parte=(select max(cod_parte) from parte)";
+    $index = $this->db->query($sql);
+    $indice = $index->fetch_object();
+    $index = $indice->cod_parte;
+    ///////// debug ////////////////
+    // echo ('$index  es igual a: ');
+    // var_dump($index);
+    // die();
+    ///////// end debug /////////
+
     $result = false;
     if ($save) {
-      $result = true;
+      $result = $index;
     }
     return $result;
   }
@@ -236,7 +252,7 @@ class Parte{
 	}
 
   public function getAll(){
-    $sql = "SELECT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = trabajador.dni ORDER BY cod_parte ASC";
+    $sql = "SELECT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = trabajador.dni where login = '{$_SESSION['identity']->login}' ORDER BY cod_parte ASC";
   // $sql = "SELECT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = '{$this->dni}' ";
 
 		$partes = $this->db->query($sql);
@@ -283,10 +299,11 @@ class Parte{
   public function search(){
   //Crear la sentencia SQL con los parámetros recibidos por $_POST
 
-  $sql = "SELECT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = '{$this->dni}' ";
+  $sql = "SELECT * FROM parte  where login = '{$_SESSION['identity']->login}' ";
+  // $sql = "SELECT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = '{$this->dni}' ";
   // $sql = "SELECT DISTINCT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = '{$this->dni}' ";
 
-  $sql = $sql . " where login = '{$_SESSION['identity']->login}' ";
+  $sql = $sql . " ";
 
   if ($this->cod_parte !="") {
     $sql = $sql . " && cod_parte = {$this->cod_parte} ";
@@ -297,7 +314,7 @@ class Parte{
   }
 
   if ($this->dni !="") {
-    $sql = $sql . " && trabajador.dni = '{$this->dni}' ";
+    $sql = $sql . " && dni = '{$this->dni}' ";
   }
 
   if ($this->causa_accidente !="") {
@@ -348,4 +365,6 @@ $result = $this->db->query($sql);
 
 		return $result;
   }
+
+ 
 }

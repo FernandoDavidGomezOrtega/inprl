@@ -2,7 +2,7 @@
   <div class="container wow fadeInUp">
     <div class="row">
       <div class="col-md-12">
-        <h3 class="section-title">Editar parte</h3>
+        <h3 class="section-title">Editar o eliminar parte</h3>
         <div class="section-title-divider"></div>
       </div>
     </div>
@@ -30,7 +30,7 @@
               <?php while ($trabajador = $trabajadores->fetch_object()): ?>
               <option value="<?= $trabajador->dni ?>"
                 <?= $trabajador->dni == $worker->dni ? ' selected ' : ''; ?>>
-                <?= $trabajador->nombre_trabajador ?>
+                <?= $trabajador->nombre_trabajador ?>  || DNI: <?= $trabajador->dni ?>
               </option>
               <?php endwhile; ?>
             </select>

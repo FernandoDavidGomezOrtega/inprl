@@ -1,4 +1,4 @@
-<div class="container" id="">
+<div class="container" id="mostrarResultados">
 
   <div class="row">
     <div class="col">
@@ -111,12 +111,9 @@
             <td><?= $parte->fecha_accidente?></td>
           </tr>
           <tr>
-            <th scope="row">Trabajador/a - DNI</th>
+            <th scope="row">DNI</th>
             <td>
-              <?=$parte->nombre_trabajador?>
-
-
-              <?=" - " . $parte->dni?>
+              <?=$parte->dni?>
             </td>
           </tr>
           <tr>
@@ -147,9 +144,11 @@
   <?php endwhile; ?>
 
   <?php else : ?>
-  <div class="row mb-3">
-    <div class="col-8 offset-2 ">
-      <h3 class="text-align-center">Ningún parte coincide con los parámetros de búsqueda</h3>
+  <div class="container" id="">
+    <div class="row ">
+      <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-danger text-center" role="alert">
+        <p>Ningún parte coincide con los parámetros de búsqueda</p>
+      </div>
     </div>
   </div>
   <?php endif; ?>
@@ -158,7 +157,7 @@
 
 
   <div class="row ">
-    <div class="text-center">
+    <div class="text-center mtc-30px mbc-30px">
       <a href="<?= base_url ?>index.php?controller=parte&action=buscarPartesForm" class="button-03C4EB">Nueva
         búsqueda</a>
       <br><br><br>

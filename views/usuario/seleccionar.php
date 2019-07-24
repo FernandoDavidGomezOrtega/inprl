@@ -8,7 +8,7 @@
       </div>
 
       <!-- //////////////////////////////////////// -->
-  <?php if (isset($_SESSION['errorLogin'])) : ?>
+  <!-- <?php if (isset($_SESSION['errorLogin'])) : ?>
   <div class="container" id ="">
   <div class="row ">
     <div class="col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2 alert alert-danger text-center" role="alert">
@@ -25,7 +25,7 @@
     </div>
   </div>
   </div>
-  <?php Utils::deleteSession('errorLogin'); endif; ?>
+  <?php Utils::deleteSession('errorLogin'); endif; ?> -->
   <!-- //////////////////////////////////////// -->
 
       <div class="row">
@@ -48,7 +48,7 @@
         </div>
         <div class="col-md-4 service-item">
         <div class="service-icon"><a href="<?= base_url ?>index.php?controller=parte&action=listAll"><i class="fa fa-database"></i></a></div>
-          <h4 class="service-title"><a href="<?= base_url ?>index.php?controller=parte&action=listAll">Consultar todos los partes existentes</a></h4>
+          <h4 class="service-title"><a href="<?= base_url ?>index.php?controller=parte&action=listAll">Listar todos los partes existentes</a></h4>
           <p class="service-description">Esta opción permite ver todos los partes existentes en la base de datos. <br>
           Ésta funcionalidad está pensada para poder comprobar los resultados de las búsquedas.
         </p>
