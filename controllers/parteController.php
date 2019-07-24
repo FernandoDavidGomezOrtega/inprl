@@ -20,7 +20,7 @@ class parteController
     {
         /////////////////////////aqui va la consulta de partes
         $parte = new Parte();
-        $partes = $parte->getAll();
+        $partes = $parte->getAllByAdmin();
     
         // var_dump($_SESSION['getTrabajadores']);
         // var_dump($partes);
@@ -80,7 +80,7 @@ class parteController
         $trabajador = new Trabajador();
         $trabajadores = $trabajador->getAll();
 
-
+        $space = "     ";
 
         //renderizar vista
         require_once 'views/parte/buscarPartesForm.php';

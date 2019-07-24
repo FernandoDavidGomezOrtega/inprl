@@ -34,10 +34,7 @@
         <tr>
           <th scope="row">Trabajador/a - DNI</th>
           <td>
-            <?=$parte->nombre_trabajador?>
-
-
-            <?=" - " . $parte->dni?>
+            <?=$parte->nombre_trabajador?> &nbsp;&nbsp; - &nbsp;&nbsp; <?=$parte->dni?>
           </td>
         </tr>
         <tr>

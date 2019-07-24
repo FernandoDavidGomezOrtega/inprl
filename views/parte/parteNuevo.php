@@ -45,7 +45,7 @@
               <option selected="selected" value="" disabled>Elegir trabajador</option>
 
               <?php while($trabajador = $trabajadores->fetch_object()): ?>
-              <option value="<?=$trabajador->dni;?>"><?=$trabajador->nombre_trabajador;?> || DNI: <?= $trabajador->dni ?></option>;
+              <option value="<?=$trabajador->dni;?>"><?=$trabajador->nombre_trabajador;?> &nbsp;&nbsp; - &nbsp;&nbsp; DNI: <?= $trabajador->dni ?></option>;
 
               <?php endwhile; ?>
             </select>

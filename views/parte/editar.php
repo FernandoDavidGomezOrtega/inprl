@@ -30,7 +30,7 @@
               <?php while ($trabajador = $trabajadores->fetch_object()): ?>
               <option value="<?= $trabajador->dni ?>"
                 <?= $trabajador->dni == $worker->dni ? ' selected ' : ''; ?>>
-                <?= $trabajador->nombre_trabajador ?>  || DNI: <?= $trabajador->dni ?>
+                <?= $trabajador->nombre_trabajador ?> &nbsp;&nbsp; - &nbsp;&nbsp; DNI: <?= $trabajador->dni ?>
               </option>
               <?php endwhile; ?>
             </select>

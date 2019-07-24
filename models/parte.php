@@ -252,6 +252,14 @@ class Parte{
 	}
 
   public function getAll(){
+    $sql = "SELECT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = trabajador.dni ORDER BY cod_parte ASC";
+  // $sql = "SELECT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = '{$this->dni}' ";
+
+		$partes = $this->db->query($sql);
+		return $partes;
+  }
+
+  public function getAllByAdmin(){
     $sql = "SELECT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = trabajador.dni where login = '{$_SESSION['identity']->login}' ORDER BY cod_parte ASC";
   // $sql = "SELECT parte.*, trabajador.nombre_trabajador FROM parte inner join trabajador ON parte.dni = '{$this->dni}' ";
 

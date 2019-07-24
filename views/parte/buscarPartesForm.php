@@ -36,7 +36,7 @@
 
           <div class="form-group">
             <label for="">Código de parte</label>
-            <input type="number" class="form-control" placeholder="verificar maxlength no funciona" maxlength="5" 
+            <input type="number" class="form-control" placeholder="" maxlength="5" 
             name="cod_parte" value="" autofocus>
           </div>
 
@@ -52,7 +52,7 @@
               <option selected="selected" value="0" readonly >Elegir trabajador</option>
 
               <?php while($trabajador = $trabajadores->fetch_object()): ?>
-              <option value="<?=$trabajador->dni;?>"><?=$trabajador->nombre_trabajador;?></option>;
+              <option value="<?=$trabajador->dni;?>"><?=$trabajador->nombre_trabajador;?> &nbsp;&nbsp; - &nbsp;&nbsp; DNI: <?=$trabajador->dni;?></option>;
 
               <?php endwhile; ?>
             </select>

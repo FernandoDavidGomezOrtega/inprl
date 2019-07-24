@@ -47,8 +47,8 @@
           </p>
         </div>
         <div class="col-md-4 service-item">
-        <div class="service-icon"><a href="<?= base_url ?>index.php?controller=parte&action=listAll"><i class="fa fa-database"></i></a></div>
-          <h4 class="service-title"><a href="<?= base_url ?>index.php?controller=parte&action=listAll">Listar todos los partes existentes</a></h4>
+        <div class="service-icon"><a href="<?= base_url ?>index.php?controller=parte&action=listAll" target="_blank"><i class="fa fa-database"></i></a></div>
+          <h4 class="service-title"><a href="<?= base_url ?>index.php?controller=parte&action=listAll" target="_blank">Listar todos los partes existentes</a></h4>
           <p class="service-description">Esta opción permite ver todos los partes existentes en la base de datos. <br>
           Ésta funcionalidad está pensada para poder comprobar los resultados de las búsquedas.
         </p>
