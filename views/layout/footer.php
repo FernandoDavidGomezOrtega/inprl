@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="copyright">
-          Designed by: <a href="https://fernandodavidgomezortega.github.io/portafolio/" target="_blank"><strong>Fernando Gómez Web 2019</strong></a>
+          Designed by: <a href="https://amazingweb.website/fernando/" target="_blank"><strong>Fernando Gómez Web 2019</strong></a>
           </div>
           <div class="credits">
         
