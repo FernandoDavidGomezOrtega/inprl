@@ -746,7 +746,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #footer .copyright {
   text-align: center;
+  margin-bottom: 0;
 }
+
 
 #footer .credits {
   padding-top: 10px;
@@ -754,3 +756,23 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 13px;
   color: #ccc;
 }
+.copyright {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 0 0;
+  text-align: center;
+  padding: 1rem;
+}
+.copyright a {
+  text-decoration: none;
+  transition: 0.3s ease all;
+}
+.copyright a:hover {
+    text-decoration: none;
+  color: yellow;
+  margin-left: 10px;
+  margin-right: 10px;
+  transform: scale(1.1);
+}
+
+
